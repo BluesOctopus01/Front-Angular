@@ -1,0 +1,42 @@
+name: CI Angular
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 - Récupération du code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Étape 2 - Installer Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # ou la version que tu utilises
+
+      # Étape 3 - Installer les dépendances
+      - name: Install dependencies
+        run: npm ci
+
+      # Étape 4 - Lancer les tests Jasmine/Karma
+      - name: Run unit tests
+        run: npm test -- --watch=false --browsers=ChromeHeadless
+        # ⚠️ Angular CLI configure Jasmine + Karma par défaut
+        # "--watch=false" pour que ça s'arrête après un run
+        # "--browsers=ChromeHeadless" pour CI sans interface graphique
+
+      # Étape 5 - Build (optionnel si tu veux vérifier que ça compile)
+      - name: Build Angular app
+        run: npm run build -- --configuration=production
