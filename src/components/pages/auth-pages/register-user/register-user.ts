@@ -1,16 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../../core/services/auth-service/auth-service';
-import { RegisterForm } from '../../../../models/register-models';
 
 
 @Component({
-  selector: 'app-register-user',
-  imports: [],
+  selector: 'register',
+  imports: [ReactiveFormsModule,FormsModule],
   templateUrl: './register-user.html',
   styleUrl: './register-user.css',
 })
 export class RegisterUser {
+
 registerForm : FormGroup;
 
 private readonly fb = inject(FormBuilder)
@@ -40,13 +40,5 @@ register(){
     
     this.authService.register(this.registerForm.value);
   }}
-
-
-
-
-
-
-
-
 
 }

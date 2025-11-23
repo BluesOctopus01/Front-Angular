@@ -2,51 +2,45 @@ import { Injectable } from '@angular/core';
 import * as jwt from 'jwt-decode';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class TokenService {
-  isTokenExpired(){
+
+  /** Vérifie si un token est valide (3 parties) */
+  private isValidJWT(token: string | null): boolean {
+    return !!token && token.split('.').length === 3;
+  }
+
+  /** Retourne le token ou null */
+  getToken(): string | null {
     const token = localStorage.getItem('token');
-    if(token){
-      const decodedToken : any = jwt.jwtDecode(token)
+    return this.isValidJWT(token) ? token : null;
+  } 
 
-      return decodedToken.exp < Date.now() / 1000;
-    }return true;
+  /** Retourne le rôle de l’utilisateur ou null */
+  getRole(): string | null {
+    const token = this.getToken();
+    if (!token) return null;
+
+    const decoded: any = jwt.jwtDecode(token);
+    return decoded.role ?? null;
   }
 
-  getRole(){
-    const token = localStorage.getItem('token');
-    if(token){
-      const decodedToken : any = jwt.jwtDecode(token)
-    return decodedToken.role;
-    }
-    return null
-  }
-  getUserId(){
-    const token = localStorage.getItem("token");
-    if(token){
-      const decodedToken : any = jwt.jwtDecode(token)
-      return decodedToken.user_id
-    }
-    return null;
+  /** Retourne l’ID utilisateur ou null */
+  getUserId(): number | null {
+    const token = this.getToken();
+    if (!token) return null;
+
+    const decoded: any = jwt.jwtDecode(token);
+    return decoded.user_id ?? null;
   }
 
-  getToken(){
-    return localStorage.getItem("token");
+  /** Vérifie si le token est expiré */
+  isTokenExpired(): boolean {
+    const token = this.getToken();
+    if (!token) return true;
+
+    const decoded: any = jwt.jwtDecode(token);
+    return decoded.exp < Date.now() / 1000;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
