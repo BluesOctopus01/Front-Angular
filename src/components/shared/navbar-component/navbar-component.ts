@@ -4,7 +4,7 @@ import { AuthService } from '../../../core/services/auth-service/auth-service';
 
 @Component({
   selector: 'app-navbar-component',
-  imports: [RouterLink],
+  // imports: [RouterLink],
   templateUrl: './navbar-component.html',
   styleUrl: './navbar-component.css',
 })
