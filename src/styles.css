@@ -1,6 +1,58 @@
 @import "bootstrap-icons/font/bootstrap-icons.min.css";
+:root {
+  /* Couleurs principales */
+  --color-primary: #1E3A8A;      /* Bleu nuit - sérieux, académique */
+  --color-accent: #06B6D4;       /* Cyan électrique - moderne, dynamique */
+  --color-secondary: #7C3AED;    /* Violet profond - élégant, contraste */
+
+  /* Fonds */
+  --color-background: #F9FAFB;   /* Gris très pâle - fond global */
+  --color-form-background: #FFFFFF; /* Blanc pur - contraste pour formulaires */
+
+  /* Textes */
+  --color-text-primary: #111827;   /* Gris anthracite - texte principal */
+  --color-text-secondary: #151b29; /* Gris secondaire - texte secondaire */
+
+  /* Feedback */
+  --color-success: #10B981;     /* Vert émeraude - succès */
+  --color-error: #DC2626;       /* Rouge carmin - erreurs */
+  --color-warning: #F59E0B;     /* Orange doré - avertissements */
+
+  /* Neutres complémentaires */
+  --color-border: #E5E7EB;      /* Gris clair - bordures */
+  --color-white: #FFFFFF;       /* Blanc pur */
+}
 
 body {
-    background-color: #121212; /* fond sombre général */
-    color: #f5f5f5; /* texte clair */
+    background-color: var(--color-background); /* fond sombre général */
+    color: var(--color-text-primary); /* texte clair */
+}
+
+
+
+nav, footer{
+    background-color:var(--color-primary) ;
+    color: var(--color-white);
+}
+
+a{
+    color: var(--color-white);
+    text-decoration: none;
+}
+a:visited{
+    color: var(--color-white);
+}
+a:hover{
+    color: var(--color-accent);
+}
+.button{
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: solid 1.5px var(--color-white);
+}
+.button:hover{
+    background-color: var(--color-white);
+    color: var(--color-secondary);
+    transition: 0.3s;
+    border: solid 1.5px var(--color-secondary);
 }

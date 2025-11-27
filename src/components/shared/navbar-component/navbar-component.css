@@ -1,0 +1,38 @@
+:root {
+  /* Couleurs principales */
+  --color-primary: #1E3A8A;      /* Bleu nuit - sérieux, académique */
+  --color-accent: #06B6D4;       /* Cyan électrique - moderne, dynamique */
+  --color-secondary: #7C3AED;    /* Violet profond - élégant, contraste */
+
+  /* Fonds */
+  --color-background: #F9FAFB;   /* Gris très pâle - fond global */
+  --color-form-background: #FFFFFF; /* Blanc pur - contraste pour formulaires */
+
+  /* Textes */
+  --color-text-primary: #111827;   /* Gris anthracite - texte principal */
+  --color-text-secondary: #151b29; /* Gris secondaire - texte secondaire */
+
+  /* Feedback */
+  --color-success: #10B981;     /* Vert émeraude - succès */
+  --color-error: #DC2626;       /* Rouge carmin - erreurs */
+  --color-warning: #F59E0B;     /* Orange doré - avertissements */
+
+  /* Neutres complémentaires */
+  --color-border: #E5E7EB;      /* Gris clair - bordures */
+  --color-white: #FFFFFF;       /* Blanc pur */
+}
+
+nav{
+    color: var(--color-white);
+}
+
+a{
+    color: var(--color-white);
+    text-decoration: none;
+}
+a:visited{
+    color: var(--color-white);
+}
+a:hover{
+    color: var(--color-accent);
+}

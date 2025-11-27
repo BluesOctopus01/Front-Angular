@@ -1,56 +1,136 @@
-<!-- Nav tabs -->
-<ul class="nav nav-tabs d-flex justify-content-between shadow-sm p-2 rounded" id="navId" role="tablist">
-    <!-- Partie gauche -->
-    <div class="d-flex">
+<!-- <ul class="nav nav-tabs d-flex justify-content-between shadow-sm p-2 rounded" id="navId" role="tablist" >
+    <div class="d-flex" >
         <li class="nav-item">
             <a href="" class="nav-link active" data-bs-toggle="tab" aria-current="page">Home</a>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle " data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 Dropdown
             </a>
-            <div class="dropdown-menu bg-dark text-light border-light">
-                <a class="dropdown-item text-light" href="#tab2Id">Action</a>
-                <a class="dropdown-item text-light" href="#tab3Id">Another action</a>
+            <div class="dropdown-menu bg-dark ">
+                <a class="dropdown-item" href="#tab2Id">Action</a>
+                <a class="dropdown-item" href="#tab3Id">Another action</a>
                 <div class="dropdown-divider bg-light"></div>
-                <a class="dropdown-item text-light" href="#tab4Id">Action</a>
+                <a class="dropdown-item" href="#tab4Id">Action</a>
             </div>
         </li>
 
         <li class="nav-item">
-            <a href="#tab5Id" class="nav-link text-light" data-bs-toggle="tab">Another link</a>
+            <a href="#tab5Id" class="nav-link" data-bs-toggle="tab">Another link</a>
         </li>
 
         <li class="nav-item">
-            <a href="#" class="nav-link disabled text-light" data-bs-toggle="tab">Disabled</a>
+            <a href="#" class="nav-link disabled" data-bs-toggle="tab">Disabled</a>
         </li>
     </div>
-
-    <!-- Partie droite -->
     <div class="d-flex">
         @if(!isLoggedNavbar()){
             <li class="nav-item">
-                <a href="register" class="nav-link text-light" data-bs-toggle="tab">Register</a>
+                <a href="register" class="nav-link" data-bs-toggle="tab">Register</a>
             </li>
             <li class="nav-item">
-                <a href="login" class="nav-link text-light" data-bs-toggle="tab">Login</a>
+                <a href="login" class="nav-link" data-bs-toggle="tab">Login</a>
             </li>
         }
 
         @if(isLoggedNavbar()){
             <li class="nav-item">
-                <a href="#profileTab" class="nav-link text-light" data-bs-toggle="tab">Profile</a>
+                <a href="#profileTab" class="nav-link" data-bs-toggle="tab">Profile</a>
             </li>
             <li class="nav-item">
-                <button class="btn btn-link nav-link text-light" (click)="logout()">Logout</button>
+                <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
             </li>
         }
 
         @if(isAdminNavbar()){
             <li class="nav-item">
-                <a href="#adminTab" class="nav-link text-light" data-bs-toggle="tab">Admin</a>
+                <a href="#adminTab" class="nav-link" data-bs-toggle="tab">Admin</a>
             </li>
         }
     </div>
-</ul>
+</ul> -->
+
+<!-- Exemple :
+
+    Non connecté → [Home] [Explorer Decks] [Tags] [Login/Register]
+
+    Connecté → [Accueil] [Mes Decks] [Sessions] [Créer Deck] [Créer Session] [Profil ▼]
+
+    Admin → ajoute [Admin ▼]  -->
+
+<nav class="navbar navbar-expand-lg -">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#"><i class="bi bi-suit-club-fill"></i></a>
+
+        <!-- Liens -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!-- Non connecté -->
+        @if(!isLoggedNavbar()){
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Explorer Decks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Tags</a>
+            </li>
+        }
+        <!-- Connecté -->
+        @if(isLoggedNavbar()){
+            <li class="nav-item">
+                <a class="nav-link" href="">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Mes Decks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sessions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Créer Deck</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Créer Session</a>
+            </li>
+        }
+        <!-- Admin -->
+        @if(isAdminNavbar()){
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                Admin
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Utilisateurs</a></li>
+                    <li><a class="dropdown-item" href="#">Decks</a></li>
+                    <li><a class="dropdown-item" href="#">Tags</a></li>
+                    <li><a class="dropdown-item" href="#">Sessions</a></li>
+                </ul>
+            </li>
+            }
+            </ul>
+        <!-- Login / Profil -->
+        <ul class="navbar-nav ms-auto">
+            @if (!isLoggedNavbar()){
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Login / Register</a>
+                </li>
+                }
+            @if(isLoggedNavbar()){
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Profil
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Voir Profil</a></li>
+                        <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                        <li><a class="dropdown-item" href="#">Déconnexion</a></li>
+                    </ul>
+                </li>
+                }
+        </ul>
+    </div>
+</nav>
