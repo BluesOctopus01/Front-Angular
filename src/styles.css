@@ -30,7 +30,7 @@ body {
 
 
 
-nav, footer{
+.nav, .footer{
     background-color:var(--color-primary) ;
     color: var(--color-white);
 }
@@ -55,4 +55,21 @@ a:hover{
     color: var(--color-secondary);
     transition: 0.3s;
     border: solid 1.5px var(--color-secondary);
+}
+.secondary{
+    color: var(--color-text-secondary)
+}
+.main-container {
+    min-height: calc(100vh - 120px);
+    padding: 2rem 0; 
+}
+.a{
+    color: var(--color-white);
+    text-decoration: none;
+}
+.a:visited{
+    color: var(--color-white);
+}
+.a:hover{
+    color: var(--color-accent);
 }

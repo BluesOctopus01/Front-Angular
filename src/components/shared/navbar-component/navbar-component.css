@@ -21,18 +21,3 @@
   --color-border: #E5E7EB;      /* Gris clair - bordures */
   --color-white: #FFFFFF;       /* Blanc pur */
 }
-
-nav{
-    color: var(--color-white);
-}
-
-a{
-    color: var(--color-white);
-    text-decoration: none;
-}
-a:visited{
-    color: var(--color-white);
-}
-a:hover{
-    color: var(--color-accent);
-}
