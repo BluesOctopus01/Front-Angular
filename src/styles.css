@@ -28,8 +28,6 @@ body {
     color: var(--color-text-primary); /* texte clair */
 }
 
-
-
 .nav, .footer{
     background-color:var(--color-primary) ;
     color: var(--color-white);
@@ -72,4 +70,12 @@ a:hover{
 }
 .a:hover{
     color: var(--color-accent);
+}
+.background-image {
+    min-height: 100vh;
+    background: url('assets/images/start-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
