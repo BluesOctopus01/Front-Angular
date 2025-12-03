@@ -5,24 +5,21 @@
 
         <!-- Liens -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+            <li class="nav-item ">
+                <a class="nav-link a" href="">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link a" href="tags">Tags</a>
+            </li>
         <!-- Non connecté -->
         @if(!isLoggedNavbar()){
-            <li class="nav-item ">
-                <a class="nav-link a" href="home-page">Home</a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link a" href="#">Explorer Decks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link a" href="#">Tags</a>
             </li>
         }
         <!-- Connecté -->
         @if(isLoggedNavbar()){
-            <li class="nav-item">
-                <a class="nav-link a" href="">Accueil</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link a" href="#">Mes Decks</a>
             </li>
@@ -43,10 +40,10 @@
                 Admin
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item a" href="#">Utilisateurs</a></li>
-                    <li><a class="dropdown-item a" href="#">Decks</a></li>
-                    <li><a class="dropdown-item a" href="#">Tags</a></li>
-                    <li><a class="dropdown-item a" href="#">Sessions</a></li>
+                    <li><a class="dropdown-item a-drop" href="#">Utilisateurs</a></li>
+                    <li><a class="dropdown-item a-drop" href="#">Decks</a></li>
+                    <li><a class="dropdown-item a-drop" href="#">Tags</a></li>
+                    <li><a class="dropdown-item a-drop" href="#">Sessions</a></li>
                 </ul>
             </li>
             }
@@ -63,10 +60,10 @@
                     <a class="nav-link dropdown-toggle a" href="#" role="button" data-bs-toggle="dropdown">
                     Profil
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item a" href="#">Voir Profil</a></li>
-                        <li><a class="dropdown-item a" href="#">Paramètres</a></li>
-                        <li><a class="dropdown-item a" href="#">Déconnexion</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end ">
+                        <li><a class="dropdown-item a-drop" href="#">Voir Profil</a></li>
+                        <li><a class="dropdown-item a-drop" href="#">Paramètres</a></li>
+                        <li><a class="dropdown-item a-drop" href="#" (click)="logout()">Déconnexion</a></li>
                     </ul>
                 </li>
                 }

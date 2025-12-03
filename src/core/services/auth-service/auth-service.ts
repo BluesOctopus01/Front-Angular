@@ -63,6 +63,6 @@ export class AuthService {
     localStorage.removeItem('token');
     this.IsLogged.set(false);
     this.IsAdmin.set(false);
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 }

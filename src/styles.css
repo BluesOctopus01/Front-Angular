@@ -60,6 +60,7 @@ a:hover{
 .main-container {
     min-height: calc(100vh - 120px);
     padding: 2rem 0; 
+
 }
 .a{
     color: var(--color-white);
@@ -71,11 +72,26 @@ a:hover{
 .a:hover{
     color: var(--color-accent);
 }
+.a-drop{
+    color : var(--color-primary) !important;
+}
+.a-drop:hover {
+    color : var(--color-white) !important;
+    background-color: var(--color-secondary); 
+}
 .background-image {
     min-height: 100vh;
     background: url('assets/images/start-background.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
+    border: none;
+}
+.delete {
+    background-color: var(--color-error);
+    border: none;
+}
+.change {
+    background-color: var(--color-success);
     border: none;
 }

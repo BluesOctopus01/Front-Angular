@@ -1,0 +1,18 @@
+<h1>Create Todo</h1>
+
+<form [formGroup]="updateTagForm" (ngSubmit)="updateTodo()">
+
+    <div>
+        <label for="name">Name</label>
+        <br>
+        <input type="text" formControlName="name">
+    </div>
+
+        <div>
+        <label for="description">Description</label>
+        <br>
+        <input type="text" formControlName="description">
+    </div>
+
+    <button type="submit">Update Tag</button>
+</form>
