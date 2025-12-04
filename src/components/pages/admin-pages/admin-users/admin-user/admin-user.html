@@ -1,0 +1,51 @@
+<h1 class="mb-4">Utilisateurs</h1>
+
+<div class="row row-cols-1 row-cols-md-2 g-3">
+    @for (u of users; track u) {
+        <div class="col" >
+        <div class="card shadow-sm h-100" [ngClass]="u.is_active ? 'active-user' : 'inactive-user'" >
+            <div class="card-body d-flex flex-column justify-content-between">
+            
+            <div>
+                <h5 class="card-title mb-2">{{ u.username }}</h5>
+                @if(!u.is_active){
+                    <p class="text-danger">Compte désactivé<p>
+                }
+                <p class="card-text mb-1">
+                <strong>Nom complet:</strong> {{ u.first_name }} {{ u.last_name }}
+                </p>
+                <p class="card-text mb-1">
+                <strong>ID:</strong> {{ u.id }}
+                </p>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <!-- TODO rajouter dans le back l'option Details pour admin
+                <button
+                class="btn btn-info btn-sm"
+                >
+                Details
+                </button> -->
+
+                @if(isAdmin()) {
+                <div>
+                    <button
+                    class="btn btn-danger btn-sm me-2"
+                    (click)="deleteUser(u.id)"
+                    >
+                    Delete
+                    </button>
+                    <!-- TODO rajouter dans le back l'option Udpate pour admin
+                    <button
+                    class="btn btn-primary btn-sm"
+                    >
+                    update
+                    </button> -->
+                </div>
+                }
+            </div>
+            </div>
+        </div>
+        </div>
+    }
+</div>
