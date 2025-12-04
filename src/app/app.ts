@@ -16,6 +16,6 @@ export class App {
     // Permet de charger le storage a chaque fois
   
     this.authService.loadFromStorage();
-    //rajouter intereceptor 
+    //rajouter intereceptor
 }
 }
